@@ -32,3 +32,7 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# next and typescript local files
+next-env.d.ts
+tsconfig.json
