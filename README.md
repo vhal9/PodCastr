@@ -24,3 +24,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
   - `yarn dev` para iniciar a aplicação num padrão SPA;
 
 Por fim, a aplicação estará disponível em `http://localhost:3000`
+
+## Estado: Em desenvolvimento
+
+- Adicionar funcionalidade para tocar os podcast's
