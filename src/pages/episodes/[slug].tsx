@@ -2,7 +2,7 @@ import { format, parseISO } from "date-fns";
 import ptBR from "date-fns/locale/pt-BR";
 import Image from 'next/image';
 import Link from 'next/link';
-
+import { useRouter } from 'next/router';
 import { GetStaticPaths, GetStaticProps } from "next";
 
 import { api } from "../../services/api";
@@ -27,6 +27,12 @@ type EpisodeProps = {
 }
 
 export default function Episode({episode} : EpisodeProps) {
+
+  const router = useRouter();
+
+  if (router.isFallback) {
+    return <p>Carregando...</p>
+  }
     
   return (
     <div className={styles.episode}>
@@ -66,10 +72,32 @@ export default function Episode({episode} : EpisodeProps) {
   )
 }
 
-export const getStaticPaths: GetStaticPaths = async () =>  {
+export const getStaticPaths: GetStaticPaths = async () =>  { //obrigatorio quando utilizar getStatic Props e arquivo com [].
+
+  const { data } = await api.get('episodes', {
+    params: {
+      _limit: 2,
+      _sort: 'published_at',
+      _order:'desc'
+    }
+  });
+  
+  const paths = data.map(episode => {
+    return {
+      params: {
+        slug: episode.id
+      }
+    };
+  });
+
   return {
-    paths: [],
+    paths,
     fallback: 'blocking'
+    //falback define a estrategia para lidar com as paginas estaticas 'dinamicas'
+    // false ele não carregará as paginas em momento nenhum, retornando 404 ao clicar em um ep
+    // true ele carregará pelo lado do cliente e manterá estatico posteriormente
+    // blocking ele carregará o conteudo no servidor do next
+    // true e blocking são incrementais
   }
 }
 
