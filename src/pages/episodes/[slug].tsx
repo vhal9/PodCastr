@@ -29,7 +29,7 @@ type EpisodeProps = {
 
 export default function Episode({episode} : EpisodeProps) {
 
-  const { } = usePlayer(); 
+  const { play } = usePlayer(); 
 
   const router = useRouter();
 
@@ -55,7 +55,7 @@ export default function Episode({episode} : EpisodeProps) {
         />
         
         <button type="button">
-          <img src="/play.svg" alt="Tocar episódio" />
+          <img src="/play.svg" alt="Tocar episódio" onClick={() => play(episode)} />
         </button>
       </div>
 
