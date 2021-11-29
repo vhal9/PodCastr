@@ -7,8 +7,6 @@ import { PlayerContextProvider } from '../contexts/PlayerContext';
 import styles from '../styles/app.module.scss';
 
 
-
-
 function MyApp({ Component, pageProps }) {
 
   return (
