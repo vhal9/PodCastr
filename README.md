@@ -21,10 +21,15 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - Execute `yarn` para baixar as dependências;
 - Execute em terminais separados:
   - `yarn server` para disponibilizar o json-server para subir a API a ser consumida;
-  - `yarn dev` para iniciar a aplicação num padrão SPA;
+  - `yarn dev` para iniciar a aplicação em formato SPA;
+  - `yarn build` para criar um build do frontend em modo estático utilizando o **nextjs**
+  - `yarn start` para executar o build do frontend em modo estático.
 
 Por fim, a aplicação estará disponível em `http://localhost:3000`
 
-## Estado: Em desenvolvimento
+## Estado: Finalizado
 
-- Adicionar funcionalidade para tocar os podcast's
+- ✔️ Adicionar funcionalidade para tocar os podcast's.
+- ✔️ Adicionar funcionalidade para trocar podcast's.
+- ✔️ Adicionar funcionalidade para tocar em modo aleatório.
+- ✔️ Adicionar funcionalidade para repetir podcast.
